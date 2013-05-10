@@ -23,6 +23,10 @@ public class Music {
 	
 	private Collection<Event> events;
 	
+	public Music() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public void setId(UUID id) {
 		this.id = id;
 	}

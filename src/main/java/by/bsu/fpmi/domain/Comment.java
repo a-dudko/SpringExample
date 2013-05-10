@@ -27,7 +27,9 @@ public class Comment {
 	
 	private Event event;
 	
-	
+	public Comment() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public UUID getId() {
 		return id;

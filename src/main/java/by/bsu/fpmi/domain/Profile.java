@@ -24,6 +24,10 @@ public class Profile {
 	
 	private Collection<Photo> photos;
 	
+	public Profile() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public UUID getId() {
 		return id;
 	}

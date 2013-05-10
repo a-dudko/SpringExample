@@ -20,6 +20,10 @@ public class Photo {
 	@Column(name="URL")
 	private String url;
 
+	public Photo() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public UUID getId() {
 		return this.id;
 	}

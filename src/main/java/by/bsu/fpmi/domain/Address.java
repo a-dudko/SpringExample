@@ -17,6 +17,10 @@ public class Address {
     @GeneratedValue
 	private UUID id;
 	
+	public Address() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public void setId(UUID id) {
 		this.id = id;
 	}

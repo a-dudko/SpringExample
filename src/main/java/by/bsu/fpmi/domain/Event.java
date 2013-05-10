@@ -28,6 +28,10 @@ public class Event {
 	@Column(name="TIME")
 	private Calendar time;
 	
+	public Event() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public void setId(UUID id) {
 		this.id = id;
 	}

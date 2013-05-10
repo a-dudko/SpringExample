@@ -21,6 +21,10 @@ public class Tag {
 	@Column(name="TEXT")
 	private String text;
 	
+	public Tag() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public UUID getId() {
 		return id;
 	}
