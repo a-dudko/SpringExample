@@ -15,24 +15,28 @@ public class Photo {
 	@Id
 	@Column(name="ID")
 	@GeneratedValue
-	private UUID mId;
+	private UUID id;
 	
 	@Column(name="URL")
-	private String mUrl;
+	private String url;
 
-	public UUID getmId() {
-		return mId;
+	public Photo() {
+		// TODO Auto-generated constructor stub
 	}
 	
-	public void setmId(UUID mId) {
-		this.mId = mId;
+	public UUID getId() {
+		return this.id;
 	}
 	
-	public String getmUrl() {
-		return mUrl;
+	public void setId(UUID id) {
+		this.id = id;
 	}
 	
-	public void setmUrl(String mUrl) {
-		this.mUrl = mUrl;
+	public String getUrl() {
+		return url;
+	}
+	
+	public void setUrl(String url) {
+		this.url = url;
 	}
 }

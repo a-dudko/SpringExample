@@ -17,46 +17,50 @@ public class Event {
 	@Id
     @Column(name="ID")
     @GeneratedValue
-	private UUID mId;
+	private UUID id;
 	
 	@Column(name="NAME")
-	private String mName;
+	private String name;
 	
 	@Column(name="DESCRIPTION")
-	private String mDescription;
+	private String description;
 	
 	@Column(name="TIME")
-	private Calendar mTime;
+	private Calendar time;
+	
+	public Event() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public void setId(UUID id) {
-		mId = id;
+		this.id = id;
 	}
 	
 	public UUID getId() {
-		return mId;
+		return id;
 	}
 	
 	public void setName(String name) {
-		mName = name;
+		this.name = name;
 	}
 	
 	public String getName() {
-		return mName;
+		return name;
 	}
 	
 	public void setDescription(String description) {
-		mDescription = description;
+		this.description = description;
 	}
 	
 	public String getDescription() {
-		return mDescription;
+		return description;
 	}
 	
 	public void setTime(Calendar time) {
-		mTime = time;
+		this.time = time;
 	}
 	
 	public Calendar getTime() {
-		return mTime;
+		return time;
 	}
 }

@@ -16,16 +16,47 @@ public class Profile {
 	@Id
 	@Column(name="ID")
 	@GeneratedValue
-	private UUID mId;
+	private UUID id;
 	
+	private Sex sex;
 	
+	private Theme theme;
 	
-	public UUID getmId() {
-		return mId;
+	private Collection<Photo> photos;
+	
+	public Profile() {
+		// TODO Auto-generated constructor stub
 	}
 	
-	public void setmId(UUID mId) {
-		this.mId = mId;
+	public UUID getId() {
+		return id;
 	}
 	
+	public void setId(UUID id) {
+		this.id = id;
+	}
+	
+	public Sex getSex() {
+		return sex;
+	}
+	
+	public void setSex(Sex sex) {
+		this.sex = sex;
+	}
+	
+	public Theme getTheme() {
+		return theme;
+	}
+	
+	public void setTheme(Theme theme) {
+		this.theme = theme;
+	}
+	
+	public Collection<Photo> getPhotos() {
+		return photos;
+	}
+	
+	public void setPhotos(Collection<Photo> photos) {
+		this.photos = photos;
+	}
 }

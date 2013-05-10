@@ -16,42 +16,38 @@ public class Music {
 	@Id
 	@Column(name="ID")
 	@GeneratedValue
-	private UUID mId;
+	private UUID id;
 	
 	@Column(name="URL")
-	private String mUrl;
+	private String url;
 	
-	private Collection<Event> mEvents;
+	private Collection<Event> events;
+	
+	public Music() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public void setId(UUID id) {
-		mId = id;
+		this.id = id;
 	}
 	
 	public UUID getId() {
-		return mId;
+		return id;
 	}
 	
 	public void setUrl(String url) {
-		mUrl = url;
+		this.url = url;
 	}
 	
 	public String getUrl() {
-		return mUrl;
+		return url;
 	}
 	
-	public void setmEvents(Collection<Event> mEvents) {
-		this.mEvents = mEvents;
+	public void setEvents(Collection<Event> events) {
+		this.events = events;
 	}
 	
-	public Collection<Event> getmEvents() {
-		return mEvents;
-	}
-	
-	public void setmUrl(String mUrl) {
-		this.mUrl = mUrl;
-	}
-	
-	public String getmUrl() {
-		return mUrl;
+	public Collection<Event> getEvents() {
+		return events;
 	}
 }

@@ -15,14 +15,18 @@ public class Address {
 	@Id
     @Column(name="ID")
     @GeneratedValue
-	private UUID mId;
+	private UUID id;
+	
+	public Address() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public void setId(UUID id) {
-		mId = id;
+		this.id = id;
 	}
 	
 	public UUID getId() {
-		return mId;
+		return id;
 	}
 	
 }
