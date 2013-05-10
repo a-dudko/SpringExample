@@ -6,7 +6,7 @@
     <h2>Home page</h2>
     <div class="container">
         <div id="login">
-        <form method="post" action="/fpmi/login">
+        <form method="post" action="login.html">
             <fieldset>
                 <input type="text" name="user[name]" placeholder="username"/>
                 <input type="password" name="user[password]" placeholder="password"/>

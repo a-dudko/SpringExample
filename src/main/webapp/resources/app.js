@@ -22,7 +22,7 @@ app.configure(function() {
   app.set('views', __dirname + "/views");
   app.set('view engine', 'eco');
   app.use(express.bodyParser());
-  return app.use(express["static"](__dirname + "/public"));
+  return app.use(express["static"](__dirname));
 });
 
 /*
@@ -41,7 +41,7 @@ handling post requests
 */
 
 
-app.post('/login', function(req, res) {
+app.post('/fpmi/login', function(req, res) {
   /*
   	user object which is sent from login form
   */
@@ -67,7 +67,7 @@ app.post('/login', function(req, res) {
   }
 });
 
-app.post('/logout', function(req, res) {
+app.post('/fpmi', function(req, res) {
   return res.render('login', {
     title: 'logged out',
     loggedOut: true
