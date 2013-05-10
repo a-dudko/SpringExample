@@ -16,44 +16,43 @@ public class Profile {
 	@Id
 	@Column(name="ID")
 	@GeneratedValue
-	private UUID mId;
+	private UUID id;
 	
+	private Sex sex;
 	
-	private Sex mSex;
+	private Theme theme;
 	
-	private Theme mTheme;
+	private Collection<Photo> photos;
 	
-	private Collection<Photo> mPhotos;
-	
-	public UUID getmId() {
-		return mId;
+	public UUID getId() {
+		return id;
 	}
 	
-	public void setmId(UUID mId) {
-		this.mId = mId;
+	public void setId(UUID id) {
+		this.id = id;
 	}
 	
-	public Sex getmSex() {
-		return mSex;
+	public Sex getSex() {
+		return sex;
 	}
 	
-	public void setmSex(Sex mSex) {
-		this.mSex = mSex;
+	public void setSex(Sex sex) {
+		this.sex = sex;
 	}
 	
-	public Theme getmTheme() {
-		return mTheme;
+	public Theme getTheme() {
+		return theme;
 	}
 	
-	public void setmTheme(Theme mTheme) {
-		this.mTheme = mTheme;
+	public void setTheme(Theme theme) {
+		this.theme = theme;
 	}
 	
-	public Collection<Photo> getmPhotos() {
-		return mPhotos;
+	public Collection<Photo> getPhotos() {
+		return photos;
 	}
 	
-	public void setmPhotos(Collection<Photo> mPhotos) {
-		this.mPhotos = mPhotos;
+	public void setPhotos(Collection<Photo> photos) {
+		this.photos = photos;
 	}
 }

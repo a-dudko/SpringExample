@@ -16,34 +16,34 @@ public class Tag {
 	@Id
 	@Column(name="ID")
 	@GeneratedValue
-	private UUID mId;
+	private UUID id;
 	
 	@Column(name="TEXT")
-	private String mText;
+	private String text;
 	
-	public UUID getmId() {
-		return mId;
+	public UUID getId() {
+		return id;
 	}
 	
-	private Collection<Event> mEvents;
+	private Collection<Event> events;
 	
-	public void setmId(UUID mId) {
-		this.mId = mId;
+	public void setId(UUID id) {
+		this.id = id;
 	}
 	
-	public String getmText() {
-		return mText;
+	public String getText() {
+		return text;
 	}
 	
-	public void setmText(String mText) {
-		this.mText = mText;
+	public void setText(String text) {
+		this.text = text;
 	}
 	
-	public Collection<Event> getmEvents() {
-		return mEvents;
+	public Collection<Event> getEvents() {
+		return events;
 	}
 	
-	public void setmEvents(Collection<Event> mEvents) {
-		this.mEvents = mEvents;
+	public void setEvents(Collection<Event> events) {
+		this.events = events;
 	}
 }

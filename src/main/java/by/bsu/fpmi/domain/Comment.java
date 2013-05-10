@@ -16,48 +16,48 @@ public class Comment {
 	@Id
 	@Column(name="ID")
 	@GeneratedValue
-	private UUID mId;
+	private UUID id;
 	
 	@Column(name="TEXT")
-	private String mText;
+	private String text;
 	
 	@Column(name="DATE")
-	private Calendar mDate;
+	private Calendar date;
 	
 	
-	private Event mEvent;
+	private Event event;
 	
 	
 	
-	public UUID getmId() {
-		return mId;
+	public UUID getId() {
+		return id;
 	}
 	
-	public void setmId(UUID mId) {
-		this.mId = mId;
+	public void setId(UUID id) {
+		this.id = id;
 	}
 	
-	public String getmText() {
-		return mText;
+	public String getText() {
+		return text;
 	}
 	
-	public void setmText(String mText) {
-		this.mText = mText;
+	public void setText(String text) {
+		this.text = text;
 	}
 	
-	public Calendar getmDate() {
-		return mDate;
+	public Calendar getDate() {
+		return date;
 	}
 	
-	public void setmDate(Calendar mDate) {
-		this.mDate = mDate;
+	public void setDate(Calendar date) {
+		this.date = date;
 	}
 	
-	public Event getmEvent() {
-		return mEvent;
+	public Event getEvent() {
+		return event;
 	}
 	
-	public void setmEvent(Event mEvent) {
-		this.mEvent = mEvent;
+	public void setEvent(Event event) {
+		this.event = event;
 	}
 }
