@@ -46,8 +46,15 @@ public class Profile {
     @ManyToMany(mappedBy="userProfiles")
     private Set<Event> events = new HashSet<Event>();
     
-	private Set<Profile> likedUserProfile = new HashSet<Profile>();
+    @ManyToMany(cascade={CascadeType.ALL})
+    @JoinTable(name="PROFILE_LIKE",
+        joinColumns={@JoinColumn(name="PROFILE_ID")},
+        inverseJoinColumns={@JoinColumn(name="LIKED_PROFILE_ID")})
+	private Set<Profile> likedUserProfiles = new HashSet<Profile>();
 	
+    @ManyToMany(mappedBy="likedUserProfiles")
+    private Set<Profile> likedProfiles = new HashSet<Profile>();
+    
 	public Profile() {
 		// TODO Auto-generated constructor stub
 	}
@@ -108,12 +115,12 @@ public class Profile {
 		this.tags = tags;
 	}
 	
-	public Set<Profile> getLikedUserProfile() {
-		return likedUserProfile;
+	public Set<Profile> getLikedUserProfiles() {
+		return likedUserProfiles;
 	}
 	
-	public void setLikedUserProfile(Set<Profile> likedUserProfile) {
-		this.likedUserProfile = likedUserProfile;
+	public void setLikedUserProfiles(Set<Profile> likedUserProfiles) {
+		this.likedUserProfiles = likedUserProfiles;
 	}
 	
 	public Set<Event> getEvents() {
@@ -122,5 +129,13 @@ public class Profile {
 	
 	public void setEvents(Set<Event> events) {
 		this.events = events;
+	}
+	
+	public Set<Profile> getLikedProfiles() {
+		return likedProfiles;
+	}
+	
+	public void setLikedProfiles(Set<Profile> likedProfiles) {
+		this.likedProfiles = likedProfiles;
 	}
 }
