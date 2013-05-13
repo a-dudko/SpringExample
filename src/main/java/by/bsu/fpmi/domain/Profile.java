@@ -1,28 +1,52 @@
 package by.bsu.fpmi.domain;
 
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
 
 @Entity
-@Table(name="PROFILES")
+@Table(name="PROFILE")
 public class Profile {
 
 	@Id
-	@Column(name="ID")
+	@Column(name="PROFILE_ID")
 	@GeneratedValue
 	private UUID id;
 	
 	private Sex sex;
 	
+	@Column(name="AGE")
+	private Integer age;
+	
 	private Theme theme;
 	
-	private Collection<Photo> photos;
+	@OneToMany(mappedBy="PROFILE")
+	private Set<Photo> photos = new HashSet<Photo>();
+	
+	@OneToMany(mappedBy="PROFILE")
+	private Set<Comment> comments = new HashSet<Comment>();
+	
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(name="PROFILE_TAG", 
+    	joinColumns={@JoinColumn(name="PROFILE_ID")}, 
+	    inverseJoinColumns={@JoinColumn(name="TAG_ID")})
+	private Set<Tag> tags = new HashSet<Tag>();
+	
+    @ManyToMany(mappedBy="userProfiles")
+    private Set<Event> events = new HashSet<Event>();
+    
+	private Set<Profile> likedUserProfile = new HashSet<Profile>();
 	
 	public Profile() {
 		// TODO Auto-generated constructor stub
@@ -44,6 +68,14 @@ public class Profile {
 		this.sex = sex;
 	}
 	
+	public Integer getAge() {
+		return age;
+	}
+	
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+	
 	public Theme getTheme() {
 		return theme;
 	}
@@ -52,11 +84,43 @@ public class Profile {
 		this.theme = theme;
 	}
 	
-	public Collection<Photo> getPhotos() {
+	public Set<Photo> getPhotos() {
 		return photos;
 	}
 	
-	public void setPhotos(Collection<Photo> photos) {
+	public void setPhotos(Set<Photo> photos) {
 		this.photos = photos;
+	}
+	
+	public Set<Comment> getComments() {
+		return comments;
+	}
+	
+	public void setComments(Set<Comment> comments) {
+		this.comments = comments;
+	}
+	
+	public Set<Tag> getTags() {
+		return tags;
+	}
+	
+	public void setTags(Set<Tag> tags) {
+		this.tags = tags;
+	}
+	
+	public Set<Profile> getLikedUserProfile() {
+		return likedUserProfile;
+	}
+	
+	public void setLikedUserProfile(Set<Profile> likedUserProfile) {
+		this.likedUserProfile = likedUserProfile;
+	}
+	
+	public Set<Event> getEvents() {
+		return events;
+	}
+	
+	public void setEvents(Set<Event> events) {
+		this.events = events;
 	}
 }

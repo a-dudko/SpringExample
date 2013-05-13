@@ -6,10 +6,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="PHOTOS")
+@Table(name="PHOTO")
 public class Photo {
 
 	@Id
@@ -19,7 +21,14 @@ public class Photo {
 	
 	@Column(name="URL")
 	private String url;
+	
+	@Column(name="DESCRIPTION")
+	private String description;
 
+	@ManyToOne
+    @JoinColumn(name="PROFILE_ID")
+	private Profile userProfile;
+	
 	public Photo() {
 		// TODO Auto-generated constructor stub
 	}
@@ -38,5 +47,21 @@ public class Photo {
 	
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public Profile getUserProfile() {
+		return userProfile;
+	}
+	
+	public void setUserProfile(Profile userProfile) {
+		this.userProfile = userProfile;
 	}
 }

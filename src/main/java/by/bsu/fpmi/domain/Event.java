@@ -1,21 +1,29 @@
 package by.bsu.fpmi.domain;
 
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+
 
 //add field for collection and annotation for it
 @Entity
-@Table(name = "EVENTS")
+@Table(name = "EVENT")
 public class Event {
 
 	@Id
-    @Column(name="ID")
+    @Column(name="EVENT_ID")
     @GeneratedValue
 	private UUID id;
 	
@@ -27,6 +35,27 @@ public class Event {
 	
 	@Column(name="TIME")
 	private Calendar time;
+	
+	@OneToMany(mappedBy="event")
+	private Set<Comment> comments = new HashSet<Comment>();
+	
+	@ManyToMany(cascade = {CascadeType.ALL})
+	@JoinTable(name="EVENT_MUSIC", 
+    	joinColumns={@JoinColumn(name="EVENT_ID")}, 
+    	inverseJoinColumns={@JoinColumn(name="MUSIC_ID")})
+	private Set<Music> musics = new HashSet<Music>();
+
+	@ManyToMany(cascade = {CascadeType.ALL})
+	@JoinTable(name="EVENT_TAG", 
+    	joinColumns={@JoinColumn(name="EVENT_ID")}, 
+    	inverseJoinColumns={@JoinColumn(name="TAG_ID")})
+	private Set<Tag> tags = new HashSet<Tag>();
+
+	@ManyToMany(cascade = {CascadeType.ALL})
+	@JoinTable(name="EVENT_PROFILE", 
+    	joinColumns={@JoinColumn(name="EVENT_ID")}, 
+    	inverseJoinColumns={@JoinColumn(name="PROFILE_ID")})
+	private Set<Profile> userProfiles = new HashSet<Profile>();
 	
 	public Event() {
 		// TODO Auto-generated constructor stub
@@ -62,5 +91,37 @@ public class Event {
 	
 	public Calendar getTime() {
 		return time;
+	}
+	
+	public Set<Comment> getComments() {
+		return comments;
+	}
+	
+	public void setComments(Set<Comment> comments) {
+		this.comments = comments;
+	}
+	
+	public Set<Music> getMusics() {
+		return musics;
+	}
+	
+	public void setMusics(Set<Music> musics) {
+		this.musics = musics;
+	}
+	
+	public Set<Tag> getTags() {
+		return tags;
+	}
+	
+	public void setTags(Set<Tag> tags) {
+		this.tags = tags;
+	}
+	
+	public Set<Profile> getUserProfiles() {
+		return userProfiles;
+	}
+	
+	public void setUserProfiles(Set<Profile> userProfiles) {
+		this.userProfiles = userProfiles;
 	}
 }

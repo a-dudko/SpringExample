@@ -1,27 +1,30 @@
 package by.bsu.fpmi.domain;
 
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="MUSICS")
+@Table(name="MUSIC")
 public class Music {
 
 	@Id
-	@Column(name="ID")
+	@Column(name="MUSIC_ID")
 	@GeneratedValue
 	private UUID id;
 	
 	@Column(name="URL")
 	private String url;
 	
-	private Collection<Event> events;
+	@ManyToMany(mappedBy="musics")
+	private Set<Event> events = new HashSet<Event>();
 	
 	public Music() {
 		// TODO Auto-generated constructor stub
@@ -43,11 +46,11 @@ public class Music {
 		return url;
 	}
 	
-	public void setEvents(Collection<Event> events) {
-		this.events = events;
+	public Set<Event> getEvents() {
+		return events;
 	}
 	
-	public Collection<Event> getEvents() {
-		return events;
+	public void setEvents(Set<Event> events) {
+		this.events = events;
 	}
 }

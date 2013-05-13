@@ -1,25 +1,33 @@
 package by.bsu.fpmi.domain;
 
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="TAGS")
+@Table(name="TAG")
 public class Tag {
 
 	@Id
-	@Column(name="ID")
+	@Column(name="TAG_ID")
 	@GeneratedValue
 	private UUID id;
 	
 	@Column(name="TEXT")
 	private String text;
+	
+	@ManyToMany(mappedBy="tags")
+	private Set<Profile> userProfiles = new HashSet<Profile>();
+	
+	@ManyToMany(mappedBy="tags")
+	private Set<Event> events = new HashSet<Event>();
 	
 	public Tag() {
 		// TODO Auto-generated constructor stub
@@ -28,8 +36,6 @@ public class Tag {
 	public UUID getId() {
 		return id;
 	}
-	
-	private Collection<Event> events;
 	
 	public void setId(UUID id) {
 		this.id = id;
@@ -43,11 +49,19 @@ public class Tag {
 		this.text = text;
 	}
 	
-	public Collection<Event> getEvents() {
+	public Set<Profile> getUserProfiles() {
+		return userProfiles;
+	}
+	
+	public void setUserProfiles(Set<Profile> userProfiles) {
+		this.userProfiles = userProfiles;
+	}
+	
+	public Set<Event> getEvents() {
 		return events;
 	}
 	
-	public void setEvents(Collection<Event> events) {
+	public void setEvents(Set<Event> events) {
 		this.events = events;
 	}
 }

@@ -7,14 +7,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="COMMENTS")
+@Table(name="COMMENT")
 public class Comment {
 
 	@Id
-	@Column(name="ID")
+	@Column(name="COMMENT_ID")
 	@GeneratedValue
 	private UUID id;
 	
@@ -24,8 +26,13 @@ public class Comment {
 	@Column(name="DATE")
 	private Calendar date;
 	
-	
+	@ManyToOne
+    @JoinColumn(name="EVENT_ID")
 	private Event event;
+	
+	@ManyToOne
+    @JoinColumn(name="PROFILE_ID")
+	private Profile userProfile;
 	
 	public Comment() {
 		// TODO Auto-generated constructor stub
@@ -61,5 +68,13 @@ public class Comment {
 	
 	public void setEvent(Event event) {
 		this.event = event;
+	}
+	
+	public Profile getUserProfile() {
+		return userProfile;
+	}
+	
+	public void setUserProfile(Profile userProfile) {
+		this.userProfile = userProfile;
 	}
 }
