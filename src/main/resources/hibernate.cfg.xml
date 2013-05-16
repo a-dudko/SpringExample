@@ -6,7 +6,12 @@
  
 <hibernate-configuration>
     <session-factory>
-        <mapping class="net.viralpatel.contact.form.Contact" />
+        <mapping class="by.bsu.fpmi.domain.Event" />
+        <mapping class="by.bsu.fpmi.domain.Music" />
+        <mapping class="by.bsu.fpmi.domain.Comment" />
+        <mapping class="by.bsu.fpmi.domain.Photo" />
+        <mapping class="by.bsu.fpmi.domain.Tag" />
+        <mapping class="by.bsu.fpmi.domain.Profile" />
     </session-factory>
 	    
 </hibernate-configuration>

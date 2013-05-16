@@ -48,28 +48,35 @@
 			value="org.springframework.web.servlet.view.tiles2.TilesView" />
 	</beans:bean>
 
-    <!-- Bean to provide Internationalization  -->
+	<bean id="jspViewResolver"
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass"
+            value="org.springframework.web.servlet.view.JstlView" />
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+ 
     <bean id="messageSource"
         class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basename" value="WEB-INF/i18n/messages" />
+        <property name="basename" value="classpath:messages" />
         <property name="defaultEncoding" value="UTF-8" />
     </bean>
-
     <bean id="propertyConfigurer"
         class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-        p:location="classpath:META-INF/spring/database.properties" />
-
+        p:location="/WEB-INF/jdbc.properties" />
+ 
     <bean id="dataSource"
         class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"
         p:driverClassName="${jdbc.driverClassName}"
         p:url="${jdbc.databaseurl}" p:username="${jdbc.username}"
         p:password="${jdbc.password}" />
-
+ 
+ 
     <bean id="sessionFactory"
         class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="configLocation">
-            <value>classpath:META-INF/hibernate.cfg.xml</value>
+            <value>classpath:hibernate.cfg.xml</value>
         </property>
         <property name="configurationClass">
             <value>org.hibernate.cfg.AnnotationConfiguration</value>
@@ -81,14 +88,11 @@
             </props>
         </property>
     </bean>
-
-    <!-- Enable the configuration of transactional behavior based on annotations -->
+ 
     <tx:annotation-driven />
-
     <bean id="transactionManager"
         class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-
 
 </beans>
