@@ -31,10 +31,10 @@ public class Profile {
 	
 	private Theme theme;
 	
-	@OneToMany(mappedBy="PROFILE")
+	@OneToMany(mappedBy="userProfile")
 	private Set<Photo> photos = new HashSet<Photo>();
-	
-	@OneToMany(mappedBy="PROFILE")
+	 
+	@OneToMany(mappedBy="userProfile")
 	private Set<Comment> comments = new HashSet<Comment>();
 	
     @ManyToMany(cascade = {CascadeType.ALL})
