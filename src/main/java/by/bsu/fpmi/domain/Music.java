@@ -2,7 +2,6 @@ package by.bsu.fpmi.domain;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +17,7 @@ public class Music {
 	@Id
 	@Column(name="MUSIC_ID")
 	@GeneratedValue
-	private UUID id;
+	private Integer id;
 	
 	@Column(name="URL")
 	private String url;
@@ -30,11 +29,11 @@ public class Music {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void setId(UUID id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
-	public UUID getId() {
+	public Integer getId() {
 		return id;
 	}
 	

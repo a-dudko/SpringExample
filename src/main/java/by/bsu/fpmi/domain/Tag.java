@@ -2,7 +2,6 @@ package by.bsu.fpmi.domain;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +17,7 @@ public class Tag {
 	@Id
 	@Column(name="TAG_ID")
 	@GeneratedValue
-	private UUID id;
+	private Integer id;
 	
 	@Column(name="TEXT")
 	private String text;
@@ -33,11 +32,11 @@ public class Tag {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public UUID getId() {
+	public Integer getId() {
 		return id;
 	}
 	
-	public void setId(UUID id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	

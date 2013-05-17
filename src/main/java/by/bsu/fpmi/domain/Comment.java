@@ -18,7 +18,7 @@ public class Comment {
 	@Id
 	@Column(name="COMMENT_ID")
 	@GeneratedValue
-	private UUID id;
+	private Integer id;
 	
 	@Column(name="TEXT")
 	private String text;
@@ -38,11 +38,11 @@ public class Comment {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public UUID getId() {
+	public Integer getId() {
 		return id;
 	}
 	
-	public void setId(UUID id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	

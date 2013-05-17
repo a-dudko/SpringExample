@@ -1,7 +1,5 @@
 package by.bsu.fpmi.domain;
 
-import java.util.UUID;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +15,7 @@ public class Photo {
 	@Id
 	@Column(name="ID")
 	@GeneratedValue
-	private UUID id;
+	private Integer id;
 	
 	@Column(name="URL")
 	private String url;
@@ -33,11 +31,11 @@ public class Photo {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public UUID getId() {
+	public Integer getId() {
 		return this.id;
 	}
 	
-	public void setId(UUID id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
