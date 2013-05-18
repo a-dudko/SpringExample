@@ -1,4 +1,4 @@
-function formValidation()
+function formValidation(f)
 {
   var ulogin = document.registration.userLogin;
   var passid = document.registration.passid;
@@ -19,12 +19,13 @@ function formValidation()
       {
         if(alphanumeric(uage))
         { 
-        	if(ValidateEmail(uemail))
-              {
-                if(validsex(umsex,ufsex))
-                {
-                }
-              } 
+    	if(ValidateEmail(uemail))
+          {
+            if(validsex(umsex,ufsex))
+            {
+            	f.submit();
+            }
+          } 
         }
       }
     }

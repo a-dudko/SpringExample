@@ -3,7 +3,7 @@
     <div id="loggedin">
     <p>HELLO <br/>luke</p>
 
-    <form method="post" action="/fpmi">
+    <form method="post" action="/login">
         <input type="submit" value="Logout"/>
     </form>
 </div>
