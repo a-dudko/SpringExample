@@ -2,11 +2,12 @@ package by.bsu.fpmi.domain;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
@@ -22,13 +23,17 @@ public class Profile {
 	@Id
 	@Column(name="PROFILE_ID")
 	@GeneratedValue
-	private UUID id;
+	private Integer id;
 	
+	@Column(name="SEX")
+	@Enumerated(EnumType.STRING)
 	private Sex sex;
 	
 	@Column(name="AGE")
 	private Integer age;
 	
+	@Column(name="THEME")
+	@Enumerated(EnumType.STRING)
 	private Theme theme;
 	
 	@OneToMany(mappedBy="userProfile")
@@ -59,11 +64,11 @@ public class Profile {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public UUID getId() {
+	public Integer getId() {
 		return id;
 	}
 	
-	public void setId(UUID id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	

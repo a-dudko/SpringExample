@@ -3,7 +3,6 @@ package by.bsu.fpmi.domain;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
@@ -25,7 +25,7 @@ public class Event {
 	@Id
     @Column(name="EVENT_ID")
     @GeneratedValue
-	private UUID id;
+	private Integer id;
 	
 	@Column(name="NAME")
 	private String name;
@@ -35,6 +35,10 @@ public class Event {
 	
 	@Column(name="TIME")
 	private Calendar time;
+	
+	@ManyToOne
+	@JoinColumn(name="ADDRESS_ID")
+	private Address address;
 	
 	@OneToMany(mappedBy="event")
 	private Set<Comment> comments = new HashSet<Comment>();
@@ -61,11 +65,11 @@ public class Event {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void setId(UUID id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
-	public UUID getId() {
+	public Integer getId() {
 		return id;
 	}
 	
@@ -91,6 +95,14 @@ public class Event {
 	
 	public Calendar getTime() {
 		return time;
+	}
+	
+	public Address getAddress() {
+		return address;
+	}
+	
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	
 	public Set<Comment> getComments() {
