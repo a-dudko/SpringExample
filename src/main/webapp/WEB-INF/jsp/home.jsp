@@ -13,5 +13,6 @@
             </fieldset>
         </form>
         </div>
+        <a href = "<c:url value="registration"/>">Registration</a>
     </div>
 </div>

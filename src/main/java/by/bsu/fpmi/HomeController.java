@@ -14,10 +14,4 @@ public class HomeController {
 	public String home() {
 		return "home";
 	}
-	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login() {
-		return "login";
-	}
-	
 }
