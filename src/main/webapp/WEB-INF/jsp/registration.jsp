@@ -15,7 +15,7 @@
 <body onload="document.registration.userLogin.focus();">
 	<h1>Registration Form</h1>
 	<p>Use tab keys to move from one input field to the next.</p>
-	<form name='registration' onSubmit="${pageContext.servletContext.contextPath}/registration/success" method = "POST">
+	<form name='registration' onSubmit="formValidation(this); return false;" action = "${pageContext.servletContext.contextPath}/registration/success" method = "POST">
 		<ul>
 			<li><label for="userLogin">User Login:</label></li>
 			<li><input type="text" name="userLogin" size="12" /></li>
