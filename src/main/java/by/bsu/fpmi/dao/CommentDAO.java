@@ -2,8 +2,11 @@ package by.bsu.fpmi.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import by.bsu.fpmi.domain.Comment;
 
+@Repository
 public class CommentDAO implements ICRUDRepository<Comment>{
 
 	@Override
@@ -31,7 +34,7 @@ public class CommentDAO implements ICRUDRepository<Comment>{
 	}
 
 	@Override
-	public void remove(Integer id) {
+	public void remove(Comment item) {
 		// TODO Auto-generated method stub
 		
 	}

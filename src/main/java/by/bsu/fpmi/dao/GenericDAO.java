@@ -4,44 +4,46 @@ import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
-import by.bsu.fpmi.domain.Event;
+public class GenericDAO<E> implements ICRUDRepository<E> {
 
-@Repository
-public class EventDAO implements ICRUDRepository<Event> {
-
+	private Class<E> type;
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	public GenericDAO(Class<E> type) {
+		this.type = type;
+	}
+	
 	@Override
-	public void add(Event item) {
+	public void add(E item) {
 		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().save(item);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Event> readAll() {
+	public List<E> readAll() {
 		// TODO Auto-generated method stub
-		return sessionFactory.getCurrentSession().createQuery("from EVENT").list();
+		return sessionFactory.getCurrentSession().createQuery("from " ).list();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public E read(Integer id) {
+		// TODO Auto-generated method stub
+		return (E)sessionFactory.getCurrentSession().get(type, id);
 	}
 
 	@Override
-	public Event read(Integer id) {
-		// TODO Auto-generated method stub
-		Event event = (Event)sessionFactory.getCurrentSession().load(Event.class, id);
-		return event;
-	}
-
-	@Override
-	public void update(Event item) {
+	public void update(E item) {
 		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().update(item);
 	}
 
 	@Override
-	public void remove(Event item) {
+	public void remove(E item) {
 		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().delete(item);
 	}

@@ -2,8 +2,11 @@ package by.bsu.fpmi.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import by.bsu.fpmi.domain.Address;
 
+@Repository
 public class AddressDAO implements ICRUDRepository<Address>{
 
 	@Override
@@ -31,7 +34,7 @@ public class AddressDAO implements ICRUDRepository<Address>{
 	}
 
 	@Override
-	public void remove(Integer id) {
+	public void remove(Address item) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,7 +1,6 @@
 package by.bsu.fpmi.domain;
 
 import java.util.Calendar;
-import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

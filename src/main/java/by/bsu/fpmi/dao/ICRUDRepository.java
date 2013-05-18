@@ -8,5 +8,5 @@ public interface ICRUDRepository<E> {
 	public List<E> readAll();
 	public E read(Integer id);
 	public void update(E item);
-	public void remove(Integer id); 
+	public void remove(E item); 
 }

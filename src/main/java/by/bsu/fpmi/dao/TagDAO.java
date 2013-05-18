@@ -2,8 +2,11 @@ package by.bsu.fpmi.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import by.bsu.fpmi.domain.Tag;
 
+@Repository
 public class TagDAO implements ICRUDRepository<Tag> {
 
 	@Override
@@ -31,7 +34,7 @@ public class TagDAO implements ICRUDRepository<Tag> {
 	}
 
 	@Override
-	public void remove(Integer id) {
+	public void remove(Tag item) {
 		// TODO Auto-generated method stub
 		
 	}

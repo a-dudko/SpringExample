@@ -2,8 +2,11 @@ package by.bsu.fpmi.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import by.bsu.fpmi.domain.Profile;
 
+@Repository
 public class ProfileDAO implements ICRUDRepository<Profile> {
 
 	@Override
@@ -31,7 +34,7 @@ public class ProfileDAO implements ICRUDRepository<Profile> {
 	}
 
 	@Override
-	public void remove(Integer id) {
+	public void remove(Profile item) {
 		// TODO Auto-generated method stub
 		
 	}
