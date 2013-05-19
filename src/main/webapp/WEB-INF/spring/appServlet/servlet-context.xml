@@ -20,7 +20,7 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
     <context:annotation-config />
-    
+
     <!-- Scans within the base package of the application for @Components to configure as beans -->
     <context:component-scan base-package="by.bsu.fpmi" />
     <context:component-scan base-package="by.bsu.fpmi.domain" />
@@ -35,7 +35,7 @@
 
     <!-- Allows for mapping the DispatcherServlet to "/" by forwarding static resource requests to the container's default Servlet -->
     <mvc:default-servlet-handler/>      
-    
+
     <beans:bean id="tilesConfigurer"
         class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
         <beans:property name="definitions">
@@ -90,5 +90,5 @@
         class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-    
+
 </beans>
