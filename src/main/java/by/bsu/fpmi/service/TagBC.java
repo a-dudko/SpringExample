@@ -21,9 +21,27 @@ public class TagBC {
     }
  
     @Transactional
-    public List<Tag> listTag() {
- 
+    public List<Tag> getTags() {
         return tagDAO.readAll();
+    }
+    
+    @Transactional
+    public int getCounts() {
+    	List<Tag> tags = getTags();
+    	if (tags != null) {
+    		return tags.size();
+    	}
+    	return 0;
+    }
+    
+    @Transactional
+    public Tag getTag(Integer id) {
+        return tagDAO.read(id);
+    }   
+    
+    @Transactional
+    public void updateTag(Tag tag) {
+        tagDAO.update(tag);
     }
  
     @Transactional

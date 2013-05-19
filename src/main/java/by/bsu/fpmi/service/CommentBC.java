@@ -21,9 +21,27 @@ public class CommentBC {
     }
  
     @Transactional
-    public List<Comment> listComment() {
- 
+    public List<Comment> getComments() {
         return commentDAO.readAll();
+    }
+    
+    @Transactional
+    public int getCounts() {
+    	List<Comment> comments = getComments();
+    	if (comments != null) {
+    		return comments.size();
+    	}
+    	return 0;
+    }
+    
+    @Transactional
+    public Comment getComment(Integer id) {
+        return commentDAO.read(id);
+    }   
+    
+    @Transactional
+    public void updateComment(Comment comment) {
+        commentDAO.update(comment);
     }
  
     @Transactional

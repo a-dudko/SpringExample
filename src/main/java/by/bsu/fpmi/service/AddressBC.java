@@ -21,9 +21,27 @@ public class AddressBC {
     }
  
     @Transactional
-    public List<Address> listAddress() {
- 
+    public List<Address> getAddresses() {
         return addressDAO.readAll();
+    }
+    
+    @Transactional
+    public int getCounts() {
+    	List<Address> addresses = getAddresses();
+    	if (addresses != null) {
+    		return addresses.size();
+    	}
+    	return 0;
+    }
+    
+    @Transactional
+    public Address getAddress(Integer id) {
+        return addressDAO.read(id);
+    }   
+    
+    @Transactional
+    public void updateAddress(Address address) {
+        addressDAO.update(address);
     }
  
     @Transactional

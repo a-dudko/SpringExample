@@ -21,11 +21,29 @@ public class PhotoBC {
     }
  
     @Transactional
-    public List<Photo> listPhoto() {
- 
+    public List<Photo> getPhotos() {
         return photoDAO.readAll();
     }
- 
+    
+    @Transactional
+    public int getCounts() {
+    	List<Photo> photos = getPhotos();
+    	if (photos != null) {
+    		return photos.size();
+    	}
+    	return 0;
+    }
+    
+    @Transactional
+    public Photo getPhoto(Integer id) {
+        return photoDAO.read(id);
+    }   
+    
+    @Transactional
+    public void updatePhoto(Photo photo) {
+        photoDAO.update(photo);
+    }
+    
     @Transactional
     public void removePhoto(Photo photo) {
     	photoDAO.remove(photo);

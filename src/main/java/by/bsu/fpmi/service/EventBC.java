@@ -22,11 +22,31 @@ public class EventBC {
     }
  
     @Transactional
-    public List<Event> listEvent() {
+    public List<Event> getEvents() {
  
         return eventDAO.readAll();
     }
  
+    @Transactional
+    public int getCounts() {
+    	List<Event> events = getEvents();
+    	if (events != null) {
+    		return events.size();
+    	}
+    	return 0;
+    }
+    
+    @Transactional
+    public Event getEvent(Integer id) {
+ 
+        return eventDAO.read(id);
+    }   
+    
+    @Transactional
+    public void updateEvent(Event event) {
+        eventDAO.update(event);
+    }
+    
     @Transactional
     public void removeEvent(Event event) {
     	eventDAO.remove(event);

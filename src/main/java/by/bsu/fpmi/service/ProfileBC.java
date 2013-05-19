@@ -21,9 +21,27 @@ public class ProfileBC {
     }
  
     @Transactional
-    public List<Profile> listProfile() {
- 
+    public List<Profile> getProfiles() {
         return profileDAO.readAll();
+    }
+    
+    @Transactional
+    public int getCounts() {
+    	List<Profile> profiles = getProfiles();
+    	if (profiles != null) {
+    		return profiles.size();
+    	}
+    	return 0;
+    }
+    
+    @Transactional
+    public Profile getProfile(Integer id) {
+        return profileDAO.read(id);
+    }   
+    
+    @Transactional
+    public void updateProfile(Profile profile) {
+        profileDAO.update(profile);
     }
  
     @Transactional

@@ -21,9 +21,27 @@ public class MusicBC {
     }
  
     @Transactional
-    public List<Music> listMusic() {
- 
+    public List<Music> getMusics() {
         return musicDAO.readAll();
+    }
+    
+    @Transactional
+    public int getCounts() {
+    	List<Music> musics = getMusics();
+    	if (musics != null) {
+    		return musics.size();
+    	}
+    	return 0;
+    }
+    
+    @Transactional
+    public Music getMusic(Integer id) {
+        return musicDAO.read(id);
+    }   
+    
+    @Transactional
+    public void updateMusic(Music music) {
+        musicDAO.update(music);
     }
  
     @Transactional
