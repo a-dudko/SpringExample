@@ -54,7 +54,7 @@ public class EventBC {
     
     @Transactional
     public List<Event> getRange(int firstElement, int secondElement) {
-    	List<Event> events = this.listEvent();
+    	List<Event> events = this.getEvents();
     	List<Event> eventsRange = new ArrayList<>();
     	secondElement = Math.min(secondElement, events.size());
     	firstElement = Math.min(firstElement,events.size());

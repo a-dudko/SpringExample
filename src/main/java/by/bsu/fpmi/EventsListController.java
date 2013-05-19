@@ -21,7 +21,7 @@ public class EventsListController {
         page = page == null ? 1 : page;
         int sizeNo = size == null ? 5 : size.intValue();
         int start = page == null ? 0 : (page.intValue() - 1) * sizeNo;
-        float nrOfPages = (float) eventBC.listEvent().size() / sizeNo;
+        float nrOfPages = (float) eventBC.getCounts() / sizeNo;
         int maxPages = (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages);
         
         modelMap.addAttribute("posts", eventBC.getRange(start, sizeNo));
