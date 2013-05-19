@@ -14,7 +14,7 @@ public class LoginController {
 		String password = request.getParameter("userPassword");
 		
 		if (name.equals("Artur") && password.equals("1234"))
-			return "login";
+			return "redirect:/main";
 		else 
 			return "redirect:";
     }

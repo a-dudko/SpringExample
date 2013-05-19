@@ -22,4 +22,9 @@
         <put-attribute name="title" value="Home > Spring 3 MVC &amp; Apache Tiles 2" />
         <put-attribute name="body" value="/WEB-INF/jsp/registration.jsp" />
     </definition>
+    
+    <definition name="eventsList" extends="baseLayout">
+        <put-attribute name="title" value="Home > Spring 3 MVC &amp; Apache Tiles 2" />
+        <put-attribute name="body" value="/WEB-INF/jsp/main.jsp" />
+    </definition>
 </tiles-definitions>	
