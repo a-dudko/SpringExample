@@ -1,5 +1,6 @@
 package by.bsu.fpmi.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,17 @@ public class EventBC {
     @Transactional
     public void removeEvent(Event event) {
     	eventDAO.remove(event);
+    }
+    
+    @Transactional
+    public List<Event> getRange(int firstElement, int secondElement) {
+    	List<Event> events = this.listEvent();
+    	List<Event> eventsRange = new ArrayList<>();
+    	secondElement = Math.min(secondElement, events.size());
+    	firstElement = Math.min(firstElement,events.size());
+    	for (int i = firstElement; i <= secondElement; i++) {
+    		eventsRange.add(events.get(i));
+    	}
+    	return eventsRange;
     }
 }
