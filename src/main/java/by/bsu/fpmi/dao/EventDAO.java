@@ -24,7 +24,7 @@ public class EventDAO implements ICRUDRepository<Event> {
 	@Override
 	public List<Event> readAll() {
 		// TODO Auto-generated method stub
-		return sessionFactory.getCurrentSession().createQuery("from EVENT").list();
+		return sessionFactory.getCurrentSession().createQuery("from Event").list();
 	}
 
 	@Override

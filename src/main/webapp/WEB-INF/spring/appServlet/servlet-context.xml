@@ -90,5 +90,50 @@
         class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
+    
+    <bean id="profileDao" class="by.bsu.fpmi.dao.GenericDAO">
+        <constructor-arg>
+            <value>by.bsu.fpmi.domain.Profile</value>
+        </constructor-arg>
+	</bean>
 
+	<bean id="photoDao" class="by.bsu.fpmi.dao.GenericDAO">
+        <constructor-arg>
+            <value>by.bsu.fpmi.domain.Photo</value>
+        </constructor-arg>
+	</bean>
+    
+    <bean id="eventDao" class="by.bsu.fpmi.dao.GenericDAO">
+        <constructor-arg>
+            <value>by.bsu.fpmi.domain.Event</value>
+        </constructor-arg>
+	</bean>
+	
+    <bean id="tagDao" class="by.bsu.fpmi.dao.GenericDAO">
+        <constructor-arg>
+            <value>by.bsu.fpmi.domain.Tag</value>
+        </constructor-arg>
+	</bean>
+	
+	<bean id="addressDao" class="by.bsu.fpmi.dao.GenericDAO">
+        <constructor-arg>
+            <value>by.bsu.fpmi.domain.Address</value>
+        </constructor-arg>
+	</bean>
+	
+	<bean id="musicDao" class="by.bsu.fpmi.dao.GenericDAO">
+        <constructor-arg>
+            <value>by.bsu.fpmi.domain.Music</value>
+        </constructor-arg>
+	</bean>
+    
+    <bean id="commentDao" class="by.bsu.fpmi.dao.GenericDAO">
+        <constructor-arg>
+            <value>by.bsu.fpmi.domain.Comment</value>
+        </constructor-arg>
+	</bean>
+    
+    
+        
+        
 </beans>

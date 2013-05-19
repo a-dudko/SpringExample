@@ -26,7 +26,7 @@ public class GenericDAO<E> implements ICRUDRepository<E> {
 	@Override
 	public List<E> readAll() {
 		// TODO Auto-generated method stub
-		return sessionFactory.getCurrentSession().createQuery("from " ).list();
+		return sessionFactory.getCurrentSession().createQuery("from " + type.getName()).list();
 	}
 
 	@SuppressWarnings("unchecked")
