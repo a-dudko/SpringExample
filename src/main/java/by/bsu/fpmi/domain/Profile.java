@@ -26,11 +26,7 @@ public class Profile {
 	@Column(name="PROFILE_ID")
 	@GeneratedValue
 	private Integer id;
-	
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	private User user;
-	
+
 	@Column(name="FIRST_NAME")
 	private String firstName;
 	
@@ -85,14 +81,6 @@ public class Profile {
 	
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	
-	public User getUser() {
-		return user;
-	}
-	
-	public void setUser(User user) {
-		this.user = user;
 	}
 	
 	public String getFirstName() {
