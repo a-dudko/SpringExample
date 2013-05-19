@@ -25,6 +25,12 @@ public class Profile {
 	@GeneratedValue
 	private Integer id;
 
+	@Column(name="LOGIN")
+	private String login;
+	
+	@Column(name="PASSWORD")
+	private String password;
+	
 	@Column(name="FIRST_NAME")
 	private String firstName;
 	
@@ -79,6 +85,22 @@ public class Profile {
 	
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public String getLogin() {
+		return login;
+	}
+	
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	public String getFirstName() {
