@@ -17,7 +17,13 @@ public class ProfileDAO implements ICRUDRepository<Profile> {
 	@Override
 	public void add(Profile item) {
 		// TODO Auto-generated method stub
-		sessionFactory.getCurrentSession().save(item);
+		try {
+			sessionFactory.getCurrentSession().save(item);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		
 	}
 
 	@SuppressWarnings("unchecked")

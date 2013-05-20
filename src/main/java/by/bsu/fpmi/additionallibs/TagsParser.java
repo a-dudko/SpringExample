@@ -1,7 +1,9 @@
 package by.bsu.fpmi.additionallibs;
 
-import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
+
+import by.bsu.fpmi.domain.Tag;
 
 public class TagsParser {
 	private static TagsParser instance;
@@ -13,12 +15,14 @@ public class TagsParser {
 		return instance;
 	}
 	
-	public Collection<String> parse(String tagsToParse) {
-		Collection<String> tags = new HashSet<String>();
+	public Set<Tag> parse(String tagsToParse) {
+		Set<Tag> tags = new HashSet<Tag>();
 		String splittedTags[] = tagsToParse.split(",");
 		for (int i = 0; i < splittedTags.length; i++) {
 			if (!("".equals(splittedTags[i]))) {
-				tags.add(splittedTags[i]);
+				Tag tag = new Tag();
+				tag.setText(splittedTags[i]);
+				tags.add(tag);
 			}
 		}
 		return tags;

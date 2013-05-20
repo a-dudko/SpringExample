@@ -3,7 +3,6 @@ function formValidation(f)
   var ulogin = document.registration.userLogin;
   var passid = document.registration.passid;
   var reppassid = document.registration.reppassid;
-  var uname = document.registration.username;
   var uage = document.registration.age;
   var uemail = document.registration.email;
   var umsex = document.registration.msex;
@@ -15,8 +14,6 @@ function formValidation(f)
     {
      if(reppassid_validation(reppassid, passid))
      {
-      if(allLetter(uname))
-      {
         if(alphanumeric(uage))
         { 
     	if(ValidateEmail(uemail))
@@ -27,7 +24,6 @@ function formValidation(f)
             }
           } 
         }
-      }
     }
     }
   }
@@ -68,21 +64,6 @@ function passid_validation(passid,mx,my)
     return false;
   }
   return true;
-}
-
-function allLetter(uname)
-{ 
-  var letters = /^[A-Za-z ]+$/;
-  if(uname.value.match(letters))
-  {
-    return true;
-  }
-  else
-  {
-    alert('Username must have alphabet characters only');
-    uname.focus();
-    return false;
-  }
 }
 
 function alphanumeric(uage)

@@ -23,8 +23,6 @@
 			<li><input type="password" name="passid" size="12" /></li>
 			<li><label for="reppassid">Repeat password:</label></li>
             <li><input type="password" name="reppassid" size="12" /></li>
-			<li><label for="username">Full Name:</label></li>
-			<li><input type="text" name="username" size="50" /></li>
 			<li><label for="age">Age:</label></li>
 			<li><input type="text" name="age" size="50" /></li>
 			<li><label for="email">Email:</label></li>

@@ -29,13 +29,7 @@ public class Profile {
 	private String login;
 	
 	@Column(name="PASSWORD")
-	private String password;
-	
-	@Column(name="FIRST_NAME")
-	private String firstName;
-	
-	@Column(name="LAST_NAME")
-	private String lastName;
+	private int password;
 	
 	@Column(name="EMAIL")
 	private String email;
@@ -95,28 +89,12 @@ public class Profile {
 		this.login = login;
 	}
 	
-	public String getPassword() {
+	public int getPassword() {
 		return password;
 	}
 	
-	public void setPassword(String password) {
+	public void setPassword(int password) {
 		this.password = password;
-	}
-	
-	public String getFirstName() {
-		return firstName;
-	}
-	
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	
-	public String getLastName() {
-		return lastName;
-	}
-	
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 	
 	public String getEmail() {
