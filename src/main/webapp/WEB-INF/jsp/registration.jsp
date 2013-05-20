@@ -26,9 +26,9 @@
 			<li><label for="age">Age:</label></li>
 			<li><input type="text" name="age" size="50" /></li>
 			<li><label for="email">Email:</label></li>
-			<li><input type="text" name="email" size="50" /></li>
+			<li><input type="email" name="email" size="50" /></li>
 			<li><label id="gender">Sex:</label></li>
-			<li><input type="radio" name="sex" value="Male" /><span>Male</span></li>
+			<li><input type="radio" name="sex" value="Male" checked/><span>Male</span></li>
 			<li><input type="radio" name="sex" value="Female" /><span>Female</span></li>
 			<li><label>Preferences:</label></li>
 			<li><input type="checkbox" name="boys" value="boys"   /><span>Boys</span></li>

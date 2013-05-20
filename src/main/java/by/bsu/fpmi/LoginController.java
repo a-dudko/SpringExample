@@ -1,6 +1,7 @@
 package by.bsu.fpmi;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,8 +23,10 @@ public class LoginController {
 		if (isDataCorrect(name, password))
 		{
 			int hashedPassword = password.hashCode();
-			if (isInBase(name,hashedPassword))
+			if (isInBase(name,hashedPassword)) {
+				request.setAttribute("user", name);
 				return "redirect:/main";
+			}
 		}
 		return "redirect:";
     }

@@ -17,6 +17,7 @@ public class EventsListController {
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
     public String getPosts(@RequestParam(value = "page", required = false) Integer page,
                            @RequestParam(value = "size", required = false) Integer size,
+                           @RequestParam(value = "user", required = true) String user,
                            ModelMap modelMap) {
 		page = page == null ? 1 : page;
         int sizeNo = size == null ? 5 : size.intValue();

@@ -30,4 +30,5 @@
 	        <a href='<c:out value="${next}" />' class="pn next">Next</a>
 	    </c:if>
 	</div>
+	<a href='<c:out value="/event/create" />'>Create Event</a>
 </html>

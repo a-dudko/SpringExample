@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import by.bsu.fpmi.additionallibs.TagsParser;
 import by.bsu.fpmi.domain.Profile;
+import by.bsu.fpmi.domain.Sex;
 import by.bsu.fpmi.domain.Tag;
 import by.bsu.fpmi.service.ProfileBC;
  
@@ -67,25 +68,28 @@ public class RegistrationController {
     
     private Profile makeProfile(HttpServletRequest request) {
     	Profile profile = new Profile();
-		String login = request.getParameter("userLogin");
-		profile.setLogin(login);
-		String password = request.getParameter("passid");
-		profile.setPassword(password.hashCode());
-		String age = request.getParameter("age");
-		profile.setAge(Integer.parseInt(age));
-		String email = request.getParameter("email");
-		profile.setEmail(email);
+		profile.setLogin(request.getParameter("userLogin"));
+		profile.setPassword(request.getParameter("passid").hashCode());
+		profile.setAge(Integer.parseInt(request.getParameter("age")));
+		profile.setEmail(request.getParameter("email"));
+		profile.setSex(Sex.valueOf(request.getParameter("sex")));
 		String tagsFromRequest = request.getParameter("desc");
-		profile.setTags(makeTags(tagsFromRequest, profile));
+		profile.setTags(makeTags(tagsFromRequest, profile, request));
 		return profile;
     }
     
-    private Set<Tag> makeTags(String tagsFromRequest, Profile profile) {
+    private Set<Tag> makeTags(String tagsFromRequest, Profile profile, HttpServletRequest request) {
     	TagsParser tagsParser = TagsParser.getInstance();
 		Set<Tag> tags = tagsParser.parse(tagsFromRequest);
 		for (Tag tag: tags) {
 			tag.getUserProfiles().add(profile);
 		}
+		addCheckboxAttributes(tags, request);
 		return tags;
     }
+
+	private void addCheckboxAttributes(Set<Tag> tags, HttpServletRequest request) {
+		
+		
+	}
 }
