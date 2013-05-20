@@ -26,6 +26,10 @@ public class RegistrationController {
     public String login() {
         return "registration";
     }
+	@RequestMapping(value = "/registration", method = RequestMethod.POST)
+    public String loginPost() {
+        return "registration";
+    }
     
     @RequestMapping(value = "/registration/success", method = RequestMethod.GET)
     public String redirectToHome() {
@@ -35,16 +39,20 @@ public class RegistrationController {
     @RequestMapping(value = "/registration/success", method = RequestMethod.POST)
     public String successfulRegistration(HttpServletRequest request) {
     	if (! checkParameters(request.getParameterMap())) {
-			redirectToHome();
+			return "redirect:/registration";
 		}
-		profileBC.addProfile(makeProfile(request));    	
-    	return "home";
+    	Profile profile = makeProfile(request);
+		profileBC.addProfile(profile);
+		return "redirect:/main?user="+profile.getLogin();
     }
     
     private boolean checkParameters(Map<String,String[]> params) {
     	
     	for (Entry<String,String[]> param: params.entrySet()) {
     		String paramValue = param.getValue()[0];
+    		if (param.getKey().equals("desc")) {
+    			continue;
+    		}
     		if ("".equals(paramValue) || paramValue == null) {
     			return false;
     		}
@@ -54,7 +62,7 @@ public class RegistrationController {
     	if (! repeatPassword.equals(password)) {
     		return false;
     	}
-    	return isInBase(params.get("userName")[0]);
+    	return !isInBase(params.get("userLogin")[0]);
     }
     
     private boolean isInBase(String login) {

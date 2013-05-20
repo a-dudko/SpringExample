@@ -24,8 +24,7 @@ public class LoginController {
 		{
 			int hashedPassword = password.hashCode();
 			if (isInBase(name,hashedPassword)) {
-				request.setAttribute("user", name);
-				return "redirect:/main";
+				return "redirect:/main?user="+name;
 			}
 		}
 		return "redirect:";

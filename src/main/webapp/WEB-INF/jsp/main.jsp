@@ -18,6 +18,7 @@
 	            <c:otherwise>
 	                <c:url value="/main" var="url">
 	                    <c:param name="page" value="${i.index}"/>
+	                    <c:param name="user" value="${user}"/>
 	                </c:url>
 	                <a href='<c:out value="${url}" />'>${i.index}</a>
 	            </c:otherwise>
@@ -25,10 +26,11 @@
 	    </c:forEach>
 	    <c:url value="/main" var="next">
 	        <c:param name="page" value="${page + 1}"/>
+	        <c:param name="user" value="${user}"/>
 	    </c:url>
 	    <c:if test="${page + 1 < maxPages}">
 	        <a href='<c:out value="${next}" />' class="pn next">Next</a>
 	    </c:if>
 	</div>
-	<a href='<c:out value="/event/create" />'>Create Event</a>
+	<a href='<c:out value="main/create" />'>Create Event</a>
 </html>

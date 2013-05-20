@@ -56,9 +56,9 @@ public class EventBC {
     public List<Event> getRange(int firstElement, int secondElement) {
     	List<Event> events = this.getEvents();
     	List<Event> eventsRange = new ArrayList<Event>();
-    	secondElement = Math.min(secondElement, events.size());
+    	secondElement = Math.min(secondElement + 1, events.size());
     	firstElement = Math.min(firstElement,events.size());
-    	for (int i = firstElement; i <= secondElement; i++) {
+    	for (int i = firstElement; i < secondElement; i++) {
     		eventsRange.add(events.get(i));
     	}
     	return eventsRange;
