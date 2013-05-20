@@ -53,12 +53,20 @@ public class RegistrationController {
     	if (! repeatPassword.equals(password)) {
     		return false;
     	}
-    	return true;
+    	return isInBase(params.get("userName")[0]);
     }
+    
+    private boolean isInBase(String login) {
+		for (Profile user : profileBC.getProfiles()) {
+			if (user.getLogin().equals(login)) {
+				return true;
+			}
+		}
+		return false;
+	}
     
     private Profile makeProfile(HttpServletRequest request) {
     	Profile profile = new Profile();
-		
 		String login = request.getParameter("userLogin");
 		profile.setLogin(login);
 		String password = request.getParameter("passid");
