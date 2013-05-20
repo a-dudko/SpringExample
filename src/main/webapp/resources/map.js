@@ -45,14 +45,6 @@ function MapWrapper()
         $(".input_city").show();
         $(".address_list").hide();
         $(".info-put-marker").hide();
-        $(".info-upload-picture").hide();
-        $(".save-button").hide();
-        //по кнопке Сохранить - сохраняем в БД но пока этого не видно
-        $(".save-button").unbind("click");
-        $(".save-button").click(function () {
-            _this.SaveToDB();
-        });
-
         _this.initUploader();
         _this.getMarkers();
     }

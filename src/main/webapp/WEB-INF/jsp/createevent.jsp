@@ -2,11 +2,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Sample registration
-    form</title>
-<link rel='stylesheet' href='<c:url value="/resources/registration-form.css"/>' type='text/css' />
-<script src="<c:url value="/resources/registration-form-validation.js"/>"></script>
+	<meta charset="utf-8">
+	<title>Sample registration
+	    form</title>
+	<link rel='stylesheet' href='<c:url value="/resources/registration-form.css"/>' type='text/css' />
+	<script src="<c:url value="/resources/registration-form-validation.js"/>"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&language=ru"></script>
+	<script type="text/javascript" src="/resources/map.js"></script>
 </head>
 <body onload="document.new_event.eventTitle.focus();">
     <h1>Creating new event form</h1>
@@ -22,6 +24,26 @@
             <li><input type="datetime-local" name="dateandtime" size="12" /></li>
             <li><input type="submit" name="submit" value="Submit" /></li>
         </ul>
+        <div class="wrapper">
+	        <div class="map" id="Map">
+	        </div>
+	        <div class="info" id="Info">
+	            <div class="input_city">
+	                <div class="title">
+	                    Введите город:</div>
+	                <div class="control">
+	                    <input id="address" class="address" name="address" type="text" value="" />
+	                    <input id="submit" class="submit" name="submit" type="button" value="Ok" />
+	                </div>
+	            </div>
+	            <div class="info-put-marker">
+	                Переместите маркер
+	            </div>
+	            <div class="address_list">
+	            </div>
+	
+	        </div>
+    	</div>
     </form>
 </body>
 </html>
